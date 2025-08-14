@@ -6,7 +6,7 @@
 /*   By: apinho-a <apinho-a@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:21:19 by apinho-a          #+#    #+#             */
-/*   Updated: 2025/08/14 16:52:29 by apinho-a         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:17:55 by apinho-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ int	ft_recursive_factorial(int nb)
 		return (nb * ft_recursive_factorial(nb - 1));
 }
 
-/*int main()
+/*int main(int argc, char **argv)
 {
 	int nb;
-	int a;
-	
-	nb = 4;
-	a = ft_recursive_factorial(nb);
-	printf("%d", a);
+
+	(void)argc;
+
+	nb = **(argv + 1) - '0';
+	nb = ft_recursive_factorial(nb);
+	printf("%d", nb);
 	return (0);
 }*/
