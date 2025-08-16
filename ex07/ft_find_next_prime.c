@@ -1,35 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apinho-a <apinho-a@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 19:21:19 by apinho-a          #+#    #+#             */
-/*   Updated: 2025/08/16 11:20:22 by apinho-a         ###   ########.fr       */
+/*   Created: 2025/08/16 18:58:58 by apinho-a          #+#    #+#             */
+/*   Updated: 2025/08/16 19:58:28 by apinho-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_recursive_factorial(int nb)
+int	ft_is_prime(int nb)
 {
-	if (nb < 0)
+	int	i;
+
+	if (nb == 0 || nb == 1 || nb < 0)
 		return (0);
-	if (nb == 0)
-		return (1);
-	else
-		return (nb * ft_recursive_factorial(nb - 1));
+	i = 1;
+	while (i < nb)
+	{
+		if (nb % i == 0 && i != 1)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }
 
-/*int main(int argc, char **argv)
+int	ft_find_next_prime(int nb)
 {
-	int nb;
+	int	i;
+	int	res;
 
-	(void)argc;
+	if (nb == 0 || nb == 1 || nb < 0)
+		nb = 2;
+	res = ft_is_prime(nb);
+	if (res == 1)
+		return (nb);
+	i = 1;
+	while (nb % i == 0)
+	{
+		nb++;
+		i++;
+	}
+	return (nb);
+}
 
-	nb = **(argv + 1) - '0';
-	nb = ft_recursive_factorial(nb);
-	printf("%d", nb);
+/* int	main()
+{
+	printf("%d", ft_find_next_prime(-2));
 	return (0);
-}*/
+} */
